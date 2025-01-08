@@ -1,25 +1,93 @@
-const itemForm = document.getElementById('itemForm');
-const itemList = document.getElementById('itemList');
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
 
-itemForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
 
-  const itemName = document.getElementById('itemName').value.trim();
-  const expiryDate = document.getElementById('expiryDate').value;
-  const quantity = document.getElementById('quantity').value;
+h1 {
+  font-size: 1.5rem;
+  color: #333;
+}
 
-  if (itemName && expiryDate && quantity) {
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <span>${itemName} (Expires: ${expiryDate}, Quantity: ${quantity})</span>
-      <button onclick="removeItem(this)">Remove</button>
-    `;
-    itemList.appendChild(li);
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-    itemForm.reset();
-  }
-});
+label {
+  font-size: 1rem;
+  text-align: left;
+  margin-bottom: 5px;
+  color: #555;
+}
 
-function removeItem(button) {
-  button.parentElement.remove();
+input, button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  text-align: left;
+}
+
+li {
+  background: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li span {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+li button {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+li button:hover {
+  background-color: #c0392b;
 }
